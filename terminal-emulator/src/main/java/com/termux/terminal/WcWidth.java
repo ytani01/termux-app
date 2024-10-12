@@ -366,127 +366,229 @@ public final class WcWidth {
     // from https://github.com/jquast/wcwidth/pull/64
     // at commit 1b9b6585b0080ea5cb88dc9815796505724793fe (2022-12-16):
     private static final int[][] WIDE_EASTASIAN = {
-        {0x01100, 0x0115f},  // Hangul Choseong Kiyeok  ..Hangul Choseong Filler
-        {0x0231a, 0x0231b},  // Watch                   ..Hourglass
-        {0x02329, 0x0232a},  // Left-pointing Angle Brac..Right-pointing Angle Bra
-        {0x023e9, 0x023ec},  // Black Right-pointing Dou..Black Down-pointing Doub
-        {0x023f0, 0x023f0},  // Alarm Clock             ..Alarm Clock
-        {0x023f3, 0x023f3},  // Hourglass With Flowing S..Hourglass With Flowing S
-        {0x025fd, 0x025fe},  // White Medium Small Squar..Black Medium Small Squar
-        {0x02614, 0x02615},  // Umbrella With Rain Drops..Hot Beverage
-        {0x02648, 0x02653},  // Aries                   ..Pisces
-        {0x0267f, 0x0267f},  // Wheelchair Symbol       ..Wheelchair Symbol
-        {0x02693, 0x02693},  // Anchor                  ..Anchor
-        {0x026a1, 0x026a1},  // High Voltage Sign       ..High Voltage Sign
-        {0x026aa, 0x026ab},  // Medium White Circle     ..Medium Black Circle
-        {0x026bd, 0x026be},  // Soccer Ball             ..Baseball
-        {0x026c4, 0x026c5},  // Snowman Without Snow    ..Sun Behind Cloud
-        {0x026ce, 0x026ce},  // Ophiuchus               ..Ophiuchus
-        {0x026d4, 0x026d4},  // No Entry                ..No Entry
-        {0x026ea, 0x026ea},  // Church                  ..Church
-        {0x026f2, 0x026f3},  // Fountain                ..Flag In Hole
-        {0x026f5, 0x026f5},  // Sailboat                ..Sailboat
-        {0x026fa, 0x026fa},  // Tent                    ..Tent
-        {0x026fd, 0x026fd},  // Fuel Pump               ..Fuel Pump
-        {0x02705, 0x02705},  // White Heavy Check Mark  ..White Heavy Check Mark
-        {0x0270a, 0x0270b},  // Raised Fist             ..Raised Hand
-        {0x02728, 0x02728},  // Sparkles                ..Sparkles
-        {0x0274c, 0x0274c},  // Cross Mark              ..Cross Mark
-        {0x0274e, 0x0274e},  // Negative Squared Cross M..Negative Squared Cross M
-        {0x02753, 0x02755},  // Black Question Mark Orna..White Exclamation Mark O
-        {0x02757, 0x02757},  // Heavy Exclamation Mark S..Heavy Exclamation Mark S
-        {0x02795, 0x02797},  // Heavy Plus Sign         ..Heavy Division Sign
-        {0x027b0, 0x027b0},  // Curly Loop              ..Curly Loop
-        {0x027bf, 0x027bf},  // Double Curly Loop       ..Double Curly Loop
-        {0x02b1b, 0x02b1c},  // Black Large Square      ..White Large Square
-        {0x02b50, 0x02b50},  // White Medium Star       ..White Medium Star
-        {0x02b55, 0x02b55},  // Heavy Large Circle      ..Heavy Large Circle
-        {0x02e80, 0x02e99},  // Cjk Radical Repeat      ..Cjk Radical Rap
-        {0x02e9b, 0x02ef3},  // Cjk Radical Choke       ..Cjk Radical C-simplified
-        {0x02f00, 0x02fd5},  // Kangxi Radical One      ..Kangxi Radical Flute
-        {0x02ff0, 0x02ffb},  // Ideographic Description ..Ideographic Description
-        {0x03000, 0x0303e},  // Ideographic Space       ..Ideographic Variation In
-        {0x03041, 0x03096},  // Hiragana Letter Small A ..Hiragana Letter Small Ke
-        {0x03099, 0x030ff},  // Combining Katakana-hirag..Katakana Digraph Koto
-        {0x03105, 0x0312f},  // Bopomofo Letter B       ..Bopomofo Letter Nn
-        {0x03131, 0x0318e},  // Hangul Letter Kiyeok    ..Hangul Letter Araeae
-        {0x03190, 0x031e3},  // Ideographic Annotation L..Cjk Stroke Q
-        {0x031f0, 0x0321e},  // Katakana Letter Small Ku..Parenthesized Korean Cha
-        {0x03220, 0x03247},  // Parenthesized Ideograph ..Circled Ideograph Koto
-        {0x03250, 0x04dbf},  // Partnership Sign        ..Cjk Unified Ideograph-4d
-        {0x04e00, 0x0a48c},  // Cjk Unified Ideograph-4e..Yi Syllable Yyr
-        {0x0a490, 0x0a4c6},  // Yi Radical Qot          ..Yi Radical Ke
-        {0x0a960, 0x0a97c},  // Hangul Choseong Tikeut-m..Hangul Choseong Ssangyeo
-        {0x0ac00, 0x0d7a3},  // Hangul Syllable Ga      ..Hangul Syllable Hih
-        {0x0f900, 0x0faff},  // Cjk Compatibility Ideogr..(nil)
-        {0x0fe10, 0x0fe19},  // Presentation Form For Ve..Presentation Form For Ve
-        {0x0fe30, 0x0fe52},  // Presentation Form For Ve..Small Full Stop
-        {0x0fe54, 0x0fe66},  // Small Semicolon         ..Small Equals Sign
-        {0x0fe68, 0x0fe6b},  // Small Reverse Solidus   ..Small Commercial At
-        {0x0ff01, 0x0ff60},  // Fullwidth Exclamation Ma..Fullwidth Right White Pa
-        {0x0ffe0, 0x0ffe6},  // Fullwidth Cent Sign     ..Fullwidth Won Sign
-        {0x16fe0, 0x16fe4},  // Tangut Iteration Mark   ..Khitan Small Script Fill
-        {0x16ff0, 0x16ff1},  // Vietnamese Alternate Rea..Vietnamese Alternate Rea
-        {0x17000, 0x187f7},  // (nil)                   ..(nil)
-        {0x18800, 0x18cd5},  // Tangut Component-001    ..Khitan Small Script Char
-        {0x18d00, 0x18d08},  // (nil)                   ..(nil)
-        {0x1aff0, 0x1aff3},  // Katakana Letter Minnan T..Katakana Letter Minnan T
-        {0x1aff5, 0x1affb},  // Katakana Letter Minnan T..Katakana Letter Minnan N
-        {0x1affd, 0x1affe},  // Katakana Letter Minnan N..Katakana Letter Minnan N
-        {0x1b000, 0x1b122},  // Katakana Letter Archaic ..Katakana Letter Archaic
-        {0x1b132, 0x1b132},  // (nil)                   ..(nil)
-        {0x1b150, 0x1b152},  // Hiragana Letter Small Wi..Hiragana Letter Small Wo
-        {0x1b155, 0x1b155},  // (nil)                   ..(nil)
-        {0x1b164, 0x1b167},  // Katakana Letter Small Wi..Katakana Letter Small N
-        {0x1b170, 0x1b2fb},  // Nushu Character-1b170   ..Nushu Character-1b2fb
-        {0x1f004, 0x1f004},  // Mahjong Tile Red Dragon ..Mahjong Tile Red Dragon
-        {0x1f0cf, 0x1f0cf},  // Playing Card Black Joker..Playing Card Black Joker
-        {0x1f18e, 0x1f18e},  // Negative Squared Ab     ..Negative Squared Ab
-        {0x1f191, 0x1f19a},  // Squared Cl              ..Squared Vs
-        {0x1f200, 0x1f202},  // Square Hiragana Hoka    ..Squared Katakana Sa
-        {0x1f210, 0x1f23b},  // Squared Cjk Unified Ideo..Squared Cjk Unified Ideo
-        {0x1f240, 0x1f248},  // Tortoise Shell Bracketed..Tortoise Shell Bracketed
-        {0x1f250, 0x1f251},  // Circled Ideograph Advant..Circled Ideograph Accept
-        {0x1f260, 0x1f265},  // Rounded Symbol For Fu   ..Rounded Symbol For Cai
-        {0x1f300, 0x1f320},  // Cyclone                 ..Shooting Star
-        {0x1f32d, 0x1f335},  // Hot Dog                 ..Cactus
-        {0x1f337, 0x1f37c},  // Tulip                   ..Baby Bottle
-        {0x1f37e, 0x1f393},  // Bottle With Popping Cork..Graduation Cap
-        {0x1f3a0, 0x1f3ca},  // Carousel Horse          ..Swimmer
-        {0x1f3cf, 0x1f3d3},  // Cricket Bat And Ball    ..Table Tennis Paddle And
-        {0x1f3e0, 0x1f3f0},  // House Building          ..European Castle
-        {0x1f3f4, 0x1f3f4},  // Waving Black Flag       ..Waving Black Flag
-        {0x1f3f8, 0x1f43e},  // Badminton Racquet And Sh..Paw Prints
-        {0x1f440, 0x1f440},  // Eyes                    ..Eyes
-        {0x1f442, 0x1f4fc},  // Ear                     ..Videocassette
-        {0x1f4ff, 0x1f53d},  // Prayer Beads            ..Down-pointing Small Red
-        {0x1f54b, 0x1f54e},  // Kaaba                   ..Menorah With Nine Branch
-        {0x1f550, 0x1f567},  // Clock Face One Oclock   ..Clock Face Twelve-thirty
-        {0x1f57a, 0x1f57a},  // Man Dancing             ..Man Dancing
-        {0x1f595, 0x1f596},  // Reversed Hand With Middl..Raised Hand With Part Be
-        {0x1f5a4, 0x1f5a4},  // Black Heart             ..Black Heart
-        {0x1f5fb, 0x1f64f},  // Mount Fuji              ..Person With Folded Hands
-        {0x1f680, 0x1f6c5},  // Rocket                  ..Left Luggage
-        {0x1f6cc, 0x1f6cc},  // Sleeping Accommodation  ..Sleeping Accommodation
-        {0x1f6d0, 0x1f6d2},  // Place Of Worship        ..Shopping Trolley
-        {0x1f6d5, 0x1f6d7},  // Hindu Temple            ..Elevator
-        {0x1f6dc, 0x1f6df},  // (nil)                   ..Ring Buoy
-        {0x1f6eb, 0x1f6ec},  // Airplane Departure      ..Airplane Arriving
-        {0x1f6f4, 0x1f6fc},  // Scooter                 ..Roller Skate
-        {0x1f7e0, 0x1f7eb},  // Large Orange Circle     ..Large Brown Square
-        {0x1f7f0, 0x1f7f0},  // Heavy Equals Sign       ..Heavy Equals Sign
-        {0x1f90c, 0x1f93a},  // Pinched Fingers         ..Fencer
-        {0x1f93c, 0x1f945},  // Wrestlers               ..Goal Net
-        {0x1f947, 0x1f9ff},  // First Place Medal       ..Nazar Amulet
-        {0x1fa70, 0x1fa7c},  // Ballet Shoes            ..Crutch
-        {0x1fa80, 0x1fa88},  // Yo-yo                   ..(nil)
-        {0x1fa90, 0x1fabd},  // Ringed Planet           ..(nil)
-        {0x1fabf, 0x1fac5},  // (nil)                   ..Person With Crown
-        {0x1face, 0x1fadb},  // (nil)                   ..(nil)
-        {0x1fae0, 0x1fae8},  // Melting Face            ..(nil)
-        {0x1faf0, 0x1faf8},  // Hand With Index Finger A..(nil)
-        {0x20000, 0x2fffd},  // Cjk Unified Ideograph-20..(nil)
-        {0x30000, 0x3fffd},  // Cjk Unified Ideograph-30..(nil)
+        {0xa1, 0xa1},
+        {0xa4, 0xa4},
+        {0xa7, 0xa8},
+        {0xaa, 0xaa},
+        {0xad, 0xae},
+        {0xb0, 0xb4},
+        {0xb6, 0xba},
+        {0xbc, 0xbf},
+        {0xc6, 0xc6},
+        {0xd0, 0xd0},
+        {0xd7, 0xd8},
+        {0xde, 0xe1},
+        {0xe6, 0xe6},
+        {0xe8, 0xea},
+        {0xec, 0xed},
+        {0xf0, 0xf0},
+        {0xf2, 0xf3},
+        {0xf7, 0xfa},
+        {0xfc, 0xfc},
+        {0xfe, 0xfe},
+        {0x101, 0x101},
+        {0x111, 0x111},
+        {0x113, 0x113},
+        {0x11b, 0x11b},
+        {0x126, 0x127},
+        {0x12b, 0x12b},
+        {0x131, 0x133},
+        {0x138, 0x138},
+        {0x13f, 0x142},
+        {0x144, 0x144},
+        {0x148, 0x14b},
+        {0x14d, 0x14d},
+        {0x152, 0x153},
+        {0x166, 0x167},
+        {0x16b, 0x16b},
+        {0x1ce, 0x1ce},
+        {0x1d0, 0x1d0},
+        {0x1d2, 0x1d2},
+        {0x1d4, 0x1d4},
+        {0x1d6, 0x1d6},
+        {0x1d8, 0x1d8},
+        {0x1da, 0x1da},
+        {0x1dc, 0x1dc},
+        {0x251, 0x251},
+        {0x261, 0x261},
+        {0x2c4, 0x2c4},
+        {0x2c7, 0x2c7},
+        {0x2c9, 0x2cb},
+        {0x2cd, 0x2cd},
+        {0x2d0, 0x2d0},
+        {0x2d8, 0x2db},
+        {0x2dd, 0x2dd},
+        {0x2df, 0x2df},
+        {0x391, 0x3a1},
+        {0x3a3, 0x3a9},
+        {0x3b1, 0x3c1},
+        {0x3c3, 0x3c9},
+        {0x401, 0x401},
+        {0x410, 0x44f},
+        {0x451, 0x451},
+        {0x1100, 0x115f},
+        {0x2010, 0x2010},
+        {0x2013, 0x2016},
+        {0x2018, 0x2019},
+        {0x201c, 0x201d},
+        {0x2020, 0x2022},
+        {0x2024, 0x2027},
+        {0x2030, 0x2030},
+        {0x2032, 0x2033},
+        {0x2035, 0x2035},
+        {0x203b, 0x203b},
+        {0x203e, 0x203e},
+        {0x2074, 0x2074},
+        {0x207f, 0x207f},
+        {0x2081, 0x2084},
+        {0x20ac, 0x20ac},
+        {0x2103, 0x2103},
+        {0x2105, 0x2105},
+        {0x2109, 0x2109},
+        {0x2113, 0x2113},
+        {0x2116, 0x2116},
+        {0x2121, 0x2122},
+        {0x2126, 0x2126},
+        {0x212b, 0x212b},
+        {0x2153, 0x2154},
+        {0x215b, 0x215e},
+        {0x2160, 0x216b},
+        {0x2170, 0x2179},
+        {0x2189, 0x2189},
+        {0x2190, 0x2199},
+        {0x21b8, 0x21b9},
+        {0x21d2, 0x21d2},
+        {0x21d4, 0x21d4},
+        {0x21e7, 0x21e7},
+        {0x2200, 0x2200},
+        {0x2202, 0x2203},
+        {0x2207, 0x2208},
+        {0x220b, 0x220b},
+        {0x220f, 0x220f},
+        {0x2211, 0x2211},
+        {0x2215, 0x2215},
+        {0x221a, 0x221a},
+        {0x221d, 0x2220},
+        {0x2223, 0x2223},
+        {0x2225, 0x2225},
+        {0x2227, 0x222c},
+        {0x222e, 0x222e},
+        {0x2234, 0x2237},
+        {0x223c, 0x223d},
+        {0x2248, 0x2248},
+        {0x224c, 0x224c},
+        {0x2252, 0x2252},
+        {0x2260, 0x2261},
+        {0x2264, 0x2267},
+        {0x226a, 0x226b},
+        {0x226e, 0x226f},
+        {0x2282, 0x2283},
+        {0x2286, 0x2287},
+        {0x2295, 0x2295},
+        {0x2299, 0x2299},
+        {0x22a5, 0x22a5},
+        {0x22bf, 0x22bf},
+        {0x2312, 0x2312},
+        {0x231a, 0x231b},
+        {0x2329, 0x232a},
+        {0x23e9, 0x23ec},
+        {0x23f0, 0x23f0},
+        {0x23f3, 0x23f3},
+        {0x2460, 0x24e9},
+        {0x24eb, 0x254b},
+        {0x2550, 0x2573},
+        {0x2580, 0x258f},
+        {0x2592, 0x2595},
+        {0x25a0, 0x25a1},
+        {0x25a3, 0x25a9},
+        {0x25b2, 0x25b3},
+        {0x25b6, 0x25b7},
+        {0x25bc, 0x25bd},
+        {0x25c0, 0x25c1},
+        {0x25c6, 0x25c8},
+        {0x25cb, 0x25cb},
+        {0x25ce, 0x25d1},
+        {0x25e2, 0x25e5},
+        {0x25ef, 0x25ef},
+        {0x25fd, 0x25fe},
+        {0x2600, 0x27e5},
+        {0x27ee, 0x27ff},
+        {0x2b1b, 0x2b1c},
+        {0x2b50, 0x2b50},
+        {0x2b55, 0x2b59},
+        {0x2e80, 0x2e99},
+        {0x2e9b, 0x2ef3},
+        {0x2f00, 0x2fd5},
+        {0x2ff0, 0x2ffb},
+        {0x3000, 0x303e},
+        {0x3041, 0x3096},
+        {0x3099, 0x30ff},
+        {0x3105, 0x312f},
+        {0x3131, 0x318e},
+        {0x3190, 0x31e3},
+        {0x31f0, 0x321e},
+        {0x3220, 0x4dbf},
+        {0x4e00, 0xa48c},
+        {0xa490, 0xa4c6},
+        {0xa960, 0xa97c},
+        {0xac00, 0xd7a3},
+        {0xf900, 0xfaff},
+        {0xfe10, 0xfe19},
+        {0xfe30, 0xfe52},
+        {0xfe54, 0xfe66},
+        {0xfe68, 0xfe6b},
+        {0xff01, 0xff60},
+        {0xffe0, 0xffe6},
+        {0xfffd, 0xfffd},
+        {0x16fe0, 0x16fe4},
+        {0x16ff0, 0x16ff1},
+        {0x17000, 0x187f7},
+        {0x18800, 0x18cd5},
+        {0x18d00, 0x18d08},
+        {0x1b000, 0x1b11e},
+        {0x1b150, 0x1b152},
+        {0x1b164, 0x1b167},
+        {0x1b170, 0x1b2fb},
+        {0x1f000, 0x1f02b},
+        {0x1f030, 0x1f093},
+        {0x1f0a0, 0x1f0ae},
+        {0x1f0b1, 0x1f0bf},
+        {0x1f0c1, 0x1f0cf},
+        {0x1f0d1, 0x1f0f5},
+        {0x1f100, 0x1f1ad},
+        {0x1f1e6, 0x1f202},
+        {0x1f210, 0x1f23b},
+        {0x1f240, 0x1f248},
+        {0x1f250, 0x1f251},
+        {0x1f260, 0x1f265},
+        {0x1f300, 0x1f6d7},
+        {0x1f6e0, 0x1f6ec},
+        {0x1f6f0, 0x1f6fc},
+        {0x1f700, 0x1f773},
+        {0x1f780, 0x1f7d8},
+        {0x1f7e0, 0x1f7eb},
+        {0x1f800, 0x1f80b},
+        {0x1f810, 0x1f847},
+        {0x1f850, 0x1f859},
+        {0x1f860, 0x1f887},
+        {0x1f890, 0x1f8ad},
+        {0x1f8b0, 0x1f8b1},
+        {0x1f900, 0x1f978},
+        {0x1f97a, 0x1f9cb},
+        {0x1f9cd, 0x1fa53},
+        {0x1fa60, 0x1fa6d},
+        {0x1fa70, 0x1fa74},
+        {0x1fa78, 0x1fa7a},
+        {0x1fa80, 0x1fa86},
+        {0x1fa90, 0x1faa8},
+        {0x1fab0, 0x1fab6},
+        {0x1fac0, 0x1fac2},
+        {0x1fad0, 0x1fad6},
+        {0x1fb00, 0x1fb92},
+        {0x1fb94, 0x1fbca},
+        {0x1fbf0, 0x1fbf9},
+        {0x20000, 0x2fffd},
+        {0x30000, 0x3fffd},
     };
 
 
